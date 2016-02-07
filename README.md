@@ -4,6 +4,8 @@ This repo is the outcome of me ignoring the 2016 superbowl. Instead I streamed t
 In the end we had a mini PHP library for the bitfinex API and a very simple trading bot. The bot uses bitcoinaverage.com API to determine if it 
 is a "good" time to buy or sell. 
 
+BTC:  1NPrfWgJfkANmd1jt88A141PjhiarT8d9U
+
 # Usage
 0. Requirements
 
