@@ -288,6 +288,9 @@ class bitfinex{
 
 require_once('config.php');
 
+//WARNING!
+//everything below this line is a simple trading bot that will probably not make you money. 
+
 $getask = json_decode(file_get_contents("https://api.bitfinex.com/v1/pubticker/BTCUSD"), true);
 $ask = $getask['ask'];
 
