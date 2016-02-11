@@ -1,9 +1,9 @@
 <?php
 
 class bitfinex{
-  protected $apikey;
-  protected $secret;
-  protected $url = "https://api.bitfinex.com";
+  private $apikey;
+  private $secret;
+  private $url = "https://api.bitfinex.com";
 
   public function __construct($apikey, $secret)
   {
