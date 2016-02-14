@@ -1,5 +1,6 @@
 <?php
 
+require_once('finex.php');
 require_once('config.php');
 
 $getask = json_decode(file_get_contents("https://api.bitfinex.com/v1/pubticker/BTCUSD"), true);
