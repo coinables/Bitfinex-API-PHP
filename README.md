@@ -16,9 +16,6 @@ BTC:  1NPrfWgJfkANmd1jt88A141PjhiarT8d9U
 
 1. Download or clone the main project and extract files.
 
-DELTE EVERYTHING AFTER `require_once(config.php);` if you don't want the bot to execute a trade. 
-If you want the bot to run automatically, you will need to set up the finex.php file to run as a crong job every N minutes/hours/days etc. 
-
 2. Update the config.php file with your api keys
 
         $api_key = "your_api_key";
