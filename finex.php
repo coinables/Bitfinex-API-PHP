@@ -142,6 +142,16 @@ class bitfinex{
    }]
    */
 
+   public function close_position($position_id)
+   {
+   $request = "/v1/position/close";
+   $data = array(
+      "request" => $request,
+      "position_id" => $position_id
+   );
+   return $this->hash_request($data);
+   }
+
    public function claim_position($position_id, $amount)
    {
    $request = "/v1/position/claim";
