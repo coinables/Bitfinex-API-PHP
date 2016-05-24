@@ -52,7 +52,7 @@ class bitfinex{
       $request = "/v1/order/cancel";
 	  $data = array(
 	     "request" => $request,
-	     "order_id" => $order_id
+	     "order_id" => (int)$order_id
 	  );
 	  return $this->hash_request($data);
    }
@@ -147,7 +147,7 @@ class bitfinex{
    $request = "/v1/position/close";
    $data = array(
       "request" => $request,
-      "position_id" => $position_id
+      "position_id" => (int)$position_id
    );
    return $this->hash_request($data);
    }
@@ -157,7 +157,7 @@ class bitfinex{
    $request = "/v1/position/claim";
    $data = array(
       "request" => $request,
-      "position_id" => $position_id, 
+      "position_id" => (int)$position_id, 
       "amount" => $amount
    );
    return $this->hash_request($data);
