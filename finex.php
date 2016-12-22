@@ -57,7 +57,7 @@ class bitfinex{
 	  return $this->hash_request($data);
    }
    
-   public function kill_switch()
+   public function cancel_all()
    {
    $request = "/v1/order/cancel/all";
    $data = array(
