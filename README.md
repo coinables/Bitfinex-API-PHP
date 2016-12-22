@@ -92,12 +92,24 @@ Example (margin buy):
 	    */
 
 ## Deposit
-		
+		$method = "bitcoin";
+		$wallet = "trading";
+		$nenew = 1;
 		$execute = $trade->deposit($method, $wallet, $renew);
 		
 Deposit generates a BTC address to deposit funds into bitfinex
-Example: deposit("bitcoin", "trading", $renew);
 $renew will generate a new fresh deposit address if set to 1, default is 0.
+
+		/*
+		example response
+		{
+		  "result":"success",
+		  "method":"bitcoin",
+		  "currency":"BTC",
+		  "address":"1A2wyHKJ4KWEoahDHVxwQy3kdd6g1qiSYV"
+		}
+		*/
+
 
 ## Positions
 Shows current positions.
@@ -121,6 +133,7 @@ Shows current positions.
 	
 ## Close Position
 		
+		$position_id = 841235;
 		$execute = $trade->close_position($position_id);	
 
 
@@ -141,6 +154,10 @@ Shows current positions.
 
 ## Transfer funds to different wallet on your account
 		
+		$amount = 2.014; 
+		$currency = "btc";
+		$from = "exchange";
+		$to = "trading";
 		$execute = $trade->transfer($amount, $currency, $from, $to);		
 		
 		
