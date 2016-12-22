@@ -94,7 +94,7 @@ Example (margin buy):
 ## Deposit
 		$method = "bitcoin";
 		$wallet = "trading";
-		$nenew = 1;
+		$renew = 1;
 		$execute = $trade->deposit($method, $wallet, $renew);
 		
 Deposit generates a BTC address to deposit funds into bitfinex
