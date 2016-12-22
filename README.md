@@ -4,9 +4,11 @@ This repo is the outcome of me ignoring the 2016 superbowl. Instead I streamed t
 In the end we had a mini PHP library for the bitfinex API and a very simple trading bot. The bot uses bitcoinaverage.com API to determine if it 
 is a "good" time to buy or sell. 
 
-If you found this helpful, please consider donating:   
+<<<<<<< HEAD
+=======
 BTC:  1NPrfWgJfkANmd1jt88A141PjhiarT8d9U
 
+>>>>>>> origin/features
 # Usage
 0. Requirements
 
@@ -16,6 +18,9 @@ BTC:  1NPrfWgJfkANmd1jt88A141PjhiarT8d9U
  * (Optional) Access to Cronjobs (this way you can automate trading)
 
 1. Download or clone the main project and extract files.
+
+DELTE EVERYTHING AFTER `require_once(config.php);` if you don't want the bot to execute a trade. 
+If you want the bot to run automatically, you will need to set up the finex.php file to run as a crong job every N minutes/hours/days etc. 
 
 2. Update the config.php file with your api keys
 
@@ -51,13 +56,95 @@ Example (margin buy):
 		("BTCUSD", "0.01", "1", "buy", "market");
 		
 ## Cancelling Orders
-		$variable = new bitfinex($api_key, $api_secret);
-		$variable2 = $variable->cancel_order("orderID");
 		
+		$order_id = "943715";
+		$execute = $trade->cancel_order($order_id);
 		
 ## Cancel All Orders
-		$variable = new bitfinex($api_key, $api_secret);
-		$variable2 = $variable->kill_switch();
+		
+		$execute = $trade->cancel_all();		
 		
 		
+## Account Info
 		
+		$execute = $trade->account_info();
+		print_r($execute);
+		/*
+	    example response
+	    [{
+	    "maker_fees":"0.1",
+	    "taker_fees":"0.2",
+		"fees":[{
+		"pairs":"BTC",
+		"maker_fees":"0.1",
+		"taker_fees":"0.2"
+	    },{
+		"pairs":"LTC",
+		"maker_fees":"0.1",
+		"taker_fees":"0.2"
+	    },
+	    {
+		"pairs":"DRK",
+		"maker_fees":"0.1",
+		"taker_fees":"0.2"
+		}]
+	    }]
+	    */
+
+## Deposit
+		
+		$execute = $trade->deposit($method, $wallet, $renew);
+		
+Deposit generates a BTC address to deposit funds into bitfinex
+Example: deposit("bitcoin", "trading", $renew);
+$renew will generate a new fresh deposit address if set to 1, default is 0.
+
+## Positions
+Shows current positions.
+		
+		$execute = $trade->positions();
+
+		/*
+		Example response:
+		[{
+		  "id":943715,
+		  "symbol":"btcusd",
+		  "status":"ACTIVE",
+		  "base":"246.94",
+		  "amount":"1.0",
+		  "timestamp":"1444141857.0",
+		  "swap":"0.0",
+		  "pl":"-2.22042"
+		}]
+		*/
+   
+	
+## Close Position
+		
+		$execute = $trade->close_position($position_id);	
+
+
+## Claim Position
+		
+		$execute = $trade->claim_position($position_id);	
+				
+
+## Get Balance of Account
+		
+		$execute = $trade->fetch_balance();				
+
+
+## Get Margin Info of Account
+		
+		$execute = $trade->margin_infos();
+
+
+## Transfer funds to different wallet on your account
+		
+		$execute = $trade->transfer($amount, $currency, $from, $to);		
+		
+<<<<<<< HEAD
+		
+=======
+		
+>>>>>>> origin/features
